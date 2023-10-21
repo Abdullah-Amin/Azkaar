@@ -455,6 +455,10 @@ public class AzkaarDetailsActivity extends AppCompatActivity {
                 binding.textViewAzkaar.setText(R.string.study7_Text);
                 binding.textNote.setText(R.string.study7_Hint);
                 break;
+            case "فضل الذكر":
+                binding.textViewAzkaar.setText(R.string.important_Text);
+                binding.textNote.setText("");
+                break;
             default:
                 binding.textViewAzkaar.setText(R.string.study8_Text);
                 binding.textNote.setText(R.string.study8_Hint);

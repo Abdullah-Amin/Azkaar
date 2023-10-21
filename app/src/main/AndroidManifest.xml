@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Azkaar"
         tools:targetApi="31">
         <activity
+            android:name=".ui.ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AzkaarDetailsActivity"
             android:exported="false" />
         <activity

@@ -1,9 +1,12 @@
 package com.example.azkaar.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.azkaar.R;
 import com.example.azkaar.adapters.HomeAdapter;
@@ -47,5 +50,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu1, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.Menu_home) {
+            Intent important = new Intent(MainActivity.this, AzkaarDetailsActivity.class);
+            important.putExtra(AzkaarConst.AZKAAR_ITEM_TEXT, "فضل الذكر");
+            startActivity(important);
+        }
+        if (id == R.id.Menu_AboutUs) {
+            Intent AboutUs = new Intent(MainActivity.this, AboutUsActivity.class);
+            startActivity(AboutUs);
+        }
+        if (id == R.id.Menu_ContactUs) {
+            Intent ContactUs = new Intent(MainActivity.this, ContactUsActivity.class);
+            startActivity(ContactUs);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
