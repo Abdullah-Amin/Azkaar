@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/azkaarBtn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_6sdp"
+    android:backgroundTint="#E4E3E3"
+    android:textColor="@color/black"
+    android:text="أذكار"
+    android:textSize="@dimen/_20ssp"/>

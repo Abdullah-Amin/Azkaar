@@ -8,14 +8,17 @@ import android.os.Bundle;
 import com.example.azkaar.R;
 import com.example.azkaar.adapters.HomeAdapter;
 import com.example.azkaar.callbacks.HomeI;
+import com.example.azkaar.constants.AzkaarConst;
 import com.example.azkaar.data.HomeItemModel;
 import com.example.azkaar.databinding.ActivityMainBinding;
+
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,38 +41,10 @@ public class MainActivity extends AppCompatActivity {
         binding.recyclerView.setAdapter(new HomeAdapter(itemModels, new HomeI() {
             @Override
             public void getItemText(String itemText) {
-                switch (itemText){
-                    case "النهار والليلة":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "الوضوء والصلاة":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "الأكل والشراب":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "الحج والعمرة":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "الخوف والسعادة":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "المرض والمصائب":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "الأدب والتعامل":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "السفر والتوكل":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    case "السحر والحسد":
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                    default:
-                        startActivity(new Intent(MainActivity.this, DayNightActivity.class));
-                        break;
-                }
+
+                Intent intent = new Intent(MainActivity.this, AzkaarGroupActivity.class);
+                intent.putExtra(AzkaarConst.HOME_ITEM_TEXT, itemText);
+                startActivity(intent);
             }
         }));
     }
