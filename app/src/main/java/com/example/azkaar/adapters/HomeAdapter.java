@@ -16,6 +16,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
 
     private ArrayList<HomeItemModel> itemModels;
     private HomeI homeI;
+
     public HomeAdapter(ArrayList<HomeItemModel> itemModels, HomeI homeI) {
         this.itemModels = itemModels;
         this.homeI = homeI;
@@ -31,13 +32,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull HomeHolder holder, int position) {
-         holder.binding.itemImage.setImageResource(itemModels.get(position).getItemImage());
-         holder.binding.itemText.setText(itemModels.get(position).getItemText());
+        holder.binding.itemImage.setImageResource(itemModels.get(position).getItemImage());
+        holder.binding.itemText.setText(itemModels.get(position).getItemText());
 
-         holder.itemView.setOnClickListener(l -> {
-             String text = holder.binding.itemText.getText().toString();
-             homeI.getItemText(text);
-         });
+        holder.itemView.setOnClickListener(l -> {
+            String text = holder.binding.itemText.getText().toString();
+            homeI.getItemText(text);
+        });
     }
 
     @Override
@@ -47,6 +48,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeHolder> {
 
     static class HomeHolder extends RecyclerView.ViewHolder {
         HomeItemBinding binding;
+
         public HomeHolder(@NonNull HomeItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;

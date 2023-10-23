@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Menu_notify"
+        android:icon="@drawable/ic_notify"
+        android:title="تنبيه للصلاة"
+        app:showAsAction="withText" />
 
-<item android:id="@+id/Menu_home"
-    android:title="فضل الذكر"
+    <item
+        android:id="@+id/Menu_home"
+        android:icon="@drawable/ic_browser"
+        android:title="فضل الذكر"
+        app:showAsAction="withText" />
 
-    android:icon="@drawable/ic_browser"
-
-    app:showAsAction="withText"
-    > </item>
-
-
-
-
-    <item android:id="@+id/Menu_AboutUs"
-        android:title="عن التطبيق"
+    <item
+        android:id="@+id/Menu_AboutUs"
         android:icon="@drawable/ic_question"
-        app:showAsAction="withText"
-        > </item>
-    <item android:id="@+id/Menu_ContactUs"
-        android:title="التواصل معنا"
+        android:title="عن التطبيق"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/Menu_ContactUs"
         android:icon="@drawable/ic_facebook"
-        app:showAsAction="withText"
-        > </item>
+        android:title="التواصل معنا"
+        app:showAsAction="withText" />
 </menu>

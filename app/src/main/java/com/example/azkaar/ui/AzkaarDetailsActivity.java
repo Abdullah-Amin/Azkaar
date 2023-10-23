@@ -2,21 +2,32 @@ package com.example.azkaar.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.azkaar.R;
 import com.example.azkaar.constants.AzkaarConst;
+import com.example.azkaar.data.DBPrayerHelper;
+import com.example.azkaar.data.HomeItemModel;
 import com.example.azkaar.databinding.ActivityAzkaarDetailsBinding;
 
 public class AzkaarDetailsActivity extends AppCompatActivity {
 
     ActivityAzkaarDetailsBinding binding;
 
+    private DBPrayerHelper prayerHelper;
+
+    private String zekr = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAzkaarDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         String text = getIntent().getStringExtra(AzkaarConst.AZKAAR_ITEM_TEXT);
 
@@ -456,7 +467,8 @@ public class AzkaarDetailsActivity extends AppCompatActivity {
                 binding.textNote.setText(R.string.study7_Hint);
                 break;
             case "فضل الذكر":
-                binding.textViewAzkaar.setText(R.string.important_Text);
+                String x = getDataFromDatabase();
+                binding.textViewAzkaar.setText(x);
                 binding.textNote.setText("");
                 break;
             default:
@@ -464,5 +476,20 @@ public class AzkaarDetailsActivity extends AppCompatActivity {
                 binding.textNote.setText(R.string.study8_Hint);
                 break;
         }
+    }
+
+    private String getDataFromDatabase() {
+        prayerHelper = new DBPrayerHelper(AzkaarDetailsActivity.this);
+        Cursor cursor = prayerHelper.readAllData();
+
+        if (cursor.getCount() == 0){
+            Toast.makeText(this, "There is no data", Toast.LENGTH_SHORT).show();
+        }else{
+            while (cursor.moveToNext()){
+                Log.i("abdo", "getDataFromDatabase: "+ cursor.getString(1));
+                zekr = cursor.getString(1);
+            }
+        }
+        return zekr;
     }
 }

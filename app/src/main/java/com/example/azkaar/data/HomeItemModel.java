@@ -1,5 +1,7 @@
 package com.example.azkaar.data;
 
+import android.graphics.Bitmap;
+
 public class HomeItemModel {
     private String itemText;
     private Integer itemImage;
